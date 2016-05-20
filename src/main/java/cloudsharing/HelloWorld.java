@@ -6,7 +6,6 @@ import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashSet;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -234,8 +233,9 @@ public class HelloWorld {
             multi.add(".jpg");
             multi.add(".png");
             multi.add(".mp3");
+            String type  = Fname.substring(Fname.indexOf("."),Fname.length()) ;
             ResponseBuilder response = null;
-if(multi.contains(Fname)) {
+if(multi.contains(type)) {
 
         File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + File.separator+"Multi"+File.separator + Fname);
 
@@ -244,6 +244,7 @@ if(multi.contains(Fname)) {
                 "attachment; filename="+Fname);
        
 } else{
+
 
 
         File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + File.separator+"Normal"+File.separator + Fname);
