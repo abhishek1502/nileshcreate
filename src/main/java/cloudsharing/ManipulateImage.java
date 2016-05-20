@@ -36,7 +36,7 @@ public class ManipulateImage {
             if (multi.contains(type)) {
                 System.out.println("path inside "+F1.getAbsolutePath());
 
-                FileOutputStream imageOutFile = new FileOutputStream(F1.getAbsolutePath() + fileName);
+                FileOutputStream imageOutFile = new FileOutputStream(F1.getAbsolutePath()+"/"+ fileName);
                                 
                 imageOutFile.write(imageByteArray);
 
@@ -44,7 +44,7 @@ public class ManipulateImage {
 
             } else {
                 System.out.println("path "+F.getAbsolutePath());
-                File f33 = new File(F.getAbsolutePath()+fileName) ;
+                File f33 = new File(F.getAbsolutePath()+"/"+fileName) ;
                 System.out.println(f33.getAbsolutePath() +"full path");
 
                 System.out.println(f33.getName()+"filename in ");
