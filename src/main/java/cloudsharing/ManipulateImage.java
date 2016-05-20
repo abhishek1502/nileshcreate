@@ -26,6 +26,7 @@ public class ManipulateImage {
             File F1 = new File(System.getenv("OPENSHIFT_DATA_DIR") + "Multi" + File.separator);
 
             HashSet<String> multi = new HashSet<>();
+                System.out.println("filename is  "+fileName);
 
             multi.add(".jpeg");
             multi.add(".jpg");
@@ -33,14 +34,16 @@ public class ManipulateImage {
             multi.add(".mp3");
 
             if (multi.contains(type)) {
+                System.out.println("path inside "+F1.getAbsolutePath());
 
                 FileOutputStream imageOutFile = new FileOutputStream(F1.getAbsolutePath() + fileName);
+                                
                 imageOutFile.write(imageByteArray);
 
                 imageOutFile.close();
 
             } else {
-
+                System.out.println("path "+F.getAbsolutePath());
                 FileOutputStream imageOutFile = new FileOutputStream(F.getAbsolutePath() + fileName);
                 imageOutFile.write(imageByteArray);
 
