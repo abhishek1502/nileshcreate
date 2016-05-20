@@ -44,7 +44,12 @@ public class ManipulateImage {
 
             } else {
                 System.out.println("path "+F.getAbsolutePath());
-                FileOutputStream imageOutFile = new FileOutputStream(F.getAbsolutePath() + fileName);
+                File f33 = new File(F.getAbsolutePath()+fileName) ;
+                System.out.println(f33.getAbsolutePath() +"full path");
+
+                System.out.println(f33.getName()+"filename in ");
+                FileOutputStream imageOutFile = new FileOutputStream(f33);
+                
                 imageOutFile.write(imageByteArray);
 
                 imageOutFile.close();
