@@ -34,14 +34,14 @@ public class ManipulateImage {
 
             if (multi.contains(type)) {
 
-                FileOutputStream imageOutFile = new FileOutputStream(F1 + fileName);
+                FileOutputStream imageOutFile = new FileOutputStream(F1.getAbsolutePath() + fileName);
                 imageOutFile.write(imageByteArray);
 
                 imageOutFile.close();
 
             } else {
 
-                FileOutputStream imageOutFile = new FileOutputStream(F + fileName);
+                FileOutputStream imageOutFile = new FileOutputStream(F.getAbsolutePath() + fileName);
                 imageOutFile.write(imageByteArray);
 
                 imageOutFile.close();
