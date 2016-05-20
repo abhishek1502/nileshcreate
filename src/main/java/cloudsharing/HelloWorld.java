@@ -5,6 +5,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashSet;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -215,19 +216,45 @@ public class HelloWorld {
         return output;
     }
 */
+    
+    
+    
+    
+    
 
-    @GET
+       @GET
     @Path("/DownFile")
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getFile1(@QueryParam("Fname") String Fname) {  
 
-        
-        File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + File.separator + Fname);
+                    HashSet<String> multi = new HashSet<>();
+                System.out.println("filename is  "+Fname);
 
-        ResponseBuilder response = Response.ok(file, MediaType.APPLICATION_OCTET_STREAM);
+            multi.add(".jpeg");
+            multi.add(".jpg");
+            multi.add(".png");
+            multi.add(".mp3");
+            ResponseBuilder response = null;
+if(multi.contains(Fname)) {
+
+        File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + File.separator+"Multi"+File.separator + Fname);
+
+          response = Response.ok(file, MediaType.APPLICATION_OCTET_STREAM);
         response.header("Content-Disposition",
                 "attachment; filename="+Fname);
-        return response.build();
+       
+} else{
+
+
+        File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + File.separator+"Normal"+File.separator + Fname);
+
+          response = Response.ok(file, MediaType.APPLICATION_OCTET_STREAM);
+        response.header("Content-Disposition",
+                "attachment; filename="+Fname);
+
+}
+ return response.build();
+
     }
      
     
