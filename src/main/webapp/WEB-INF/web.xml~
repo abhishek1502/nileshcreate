@@ -10,7 +10,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey Web Application</servlet-name>
-		<url-pattern>/nileshpatil/*</url-pattern>
+		<url-pattern>/crunchify/*</url-pattern>
 	</servlet-mapping>
 	<servlet>
     <display-name>RegisterService</display-name>
