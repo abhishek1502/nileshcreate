@@ -273,4 +273,10 @@ if(multi.contains(type)) {
         }
         return output;
     }
+   @GET
+    @Path("/test")
+     public String SayHello() {
+      return "Hello World";
+   }
+ 
 }
